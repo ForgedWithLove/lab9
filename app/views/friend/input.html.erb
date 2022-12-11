@@ -1,7 +1,10 @@
 <h1>Нахождение дружественных чисел</h1>
-<%= form_tag("/friend/view", :method => "get") do %>
+<%= form_tag("/friend/view.json", :method => "get",
+remote: true, id: 'friend_form') do %>
 <%= label_tag("Два числа называются взаимно дружественными, если каждое из них равно сумме всех делителей другого, кроме самого этого числа.") %> <br/>
 <%= label_tag("Найдем дружественные числа в диапазоне от 1 до ") %>
-<%= text_field_tag(:v1) %> <br/>
+<%= text_field_tag(:v1)%> <br/>
 <%= submit_tag("Вычислить") %>
-<% end %> 
+<% end %></br>
+<div id="error"></div>
+<div id="result"></div>
