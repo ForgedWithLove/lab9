@@ -16,6 +16,7 @@ feature 'User enters correct data' do
     sleep 2
     expect(@driver.find_element(:css, 'tbody:nth-child(2) td:nth-child(1)').text).to eq('220')
     expect(@driver.find_element(:css, 'tbody:nth-child(2) td:nth-child(2)').text).to eq('284')
+    @driver.close()
   end
   scenario 'Entering 10000' do
     @driver = Selenium::WebDriver.for :firefox
@@ -36,6 +37,7 @@ feature 'User enters correct data' do
     expect(@driver.find_element(:css, 'tbody:nth-child(5) td:nth-child(2)').text).to eq('5564')
     expect(@driver.find_element(:css, 'tbody:nth-child(6) td:nth-child(1)').text).to eq('6232')
     expect(@driver.find_element(:css, 'tbody:nth-child(6) td:nth-child(2)').text).to eq('6368')
+    @driver.close()
   end
 end
 feature 'User enters incorrect data' do
@@ -49,5 +51,6 @@ feature 'User enters incorrect data' do
     @driver.find_element(:name, 'commit').click
     sleep 2
     expect(@driver.find_element(id: 'error').text).to eq('Пожалуйста, введите натуральное число.')
+    @driver.close()
   end
 end
